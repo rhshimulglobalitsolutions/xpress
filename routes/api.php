@@ -25,6 +25,3 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('tasks', TaskController::class);
 Route::get('/tasks/search/{title}', [TaskController::class, 'search']);
 
-
-//Route::post('/search',  [SearchController::class, 'search'])->name('search');
-

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SurveyController;
+use App\Models\Survey;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -36,3 +38,16 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+Route::get('list', [SurveyController::class, 'index']);
+Route::get('list/{id}', [SurveyController::class, 'show']);
+Route::get('/list/search/{title}', [SurveyController::class, 'search']);
+Route::view('add','additem');
+Route::post('add',[SurveyController::class, 'additem']);
+
+Route::get('edit/{id}',[SurveyController::class, 'edit']);
+Route::post('edit',[SurveyController::class, 'update']);
+Route::get('delete/{id}',[SurveyController::class, 'delete']);
+
+
